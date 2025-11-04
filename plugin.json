@@ -1,0 +1,19 @@
+{
+    "name": "LoginShibboleth",
+    "version": "5.0.0",
+    "description": "Shibboleth authentication for Matomo.",
+    "theme": false,
+    "keywords": ["shibboleth", "login", "authentication", "active", "directory", "sso" ],
+    "license": "GPL v3+",
+    "homepage": "https://github.com/zecm-via/plugin-LoginShibboleth",
+    "require": {
+        "matomo": ">=5.0.0-b1,<6.0.0-b1"
+    },
+    "authors": [
+        {
+            "name": "Yann Weyer",
+            "email": "yann.weyer@tu-berlin.de"
+        }
+    ],
+    "category": "security"
+}
