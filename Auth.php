@@ -59,7 +59,7 @@ class Auth implements AuthInterface
             $this->login = $_SERVER[Config::getShibbolethUserLogin()];
 
             // If so, check if there is a matching session
-            if ($_SESSION['loginshibboleth_user'] && $this->login === $_SESSION['loginshibboleth_user']['login']) {
+            if (isset($_SESSION['loginshibboleth_user']) && $this->login === $_SESSION['loginshibboleth_user']['login']) {
                 return $this->makeSuccess($_SESSION['loginshibboleth_user']);
             }
         }
@@ -90,10 +90,10 @@ class Auth implements AuthInterface
     private function makeSuccess($user)
     {
         $this->setLogin($user['login']);
-        $this->setTokenAuth($user['token_auth']);
+        $this->setTokenAuth($user['token_auth'] ?? null);
         $code = $user['superuser_access'] ? AuthResult::SUCCESS_SUPERUSER_AUTH_CODE : AuthResult::SUCCESS;
 
-        return new AuthResult($code, $this->login, $user['token_auth']);
+        return new AuthResult($code, $this->login, $this->getTokenAuth());
     }
 
     /**
