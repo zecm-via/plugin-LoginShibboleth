@@ -43,26 +43,6 @@ class LoginShibboleth extends \Piwik\Plugin
         return $hooks;
     }
 
-    /**
-     * Deactivate default Login module, as both cannot be activated together.
-     */
-    public function activate()
-    {
-        if (Manager::getInstance()->isPluginActivated("Login")) {
-            Manager::getInstance()->deactivatePlugin("Login");
-        }
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function deactivate()
-    {
-        if (!Manager::getInstance()->isPluginActivated("Login")) {
-            Manager::getInstance()->activatePlugin("Login");
-        }
-    }
-
     public function disableConfirmResetPassword()
     {
         // redirect to login w/ error message

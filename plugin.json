@@ -1,6 +1,6 @@
 {
     "name": "LoginShibboleth",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "description": "Shibboleth authentication for Matomo.",
     "theme": false,
     "keywords": ["shibboleth", "login", "authentication", "active", "directory", "sso" ],
